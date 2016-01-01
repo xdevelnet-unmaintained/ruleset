@@ -1,22 +1,23 @@
-##Just a few rules that should be followed while programming and working with Xdevelnet
-Some rules are related to C programming language.
+##Xdevelnet developing ruleset
+
+Some rules might be related to C programming language.
 
 
-1. Use c99 standart, just to make possible declare variables where u want and assign values at declaration. But make possible to easily rewrite code to c89:
+1. Use c99 standard, just to be able to declare variables where you want and assign values at declaration. But make possible to easily rewrite code to c89:
 
-    * Do not use variable lenght arrays, use [m,c]alloc() instead;
-    * Do not use bool types (you probably can avoid it, bool is not bool 4 real);
-    * Do not EVER use any gnu standart (gnu89, gnu99). Keep your code clear.
+    * Do not use variable length arrays, use [m,c]alloc() instead;
+    * Do not use bool types, you probably can avoid it. Also, bool is not bool for real;
+    * Do not EVER use any gnu standart (gnu89, gnu99). Keep your code clean.
 
 2. Take care about memory management:
 
-    * Never use malloc() in critical applications. Returned non-null value (pointer TBH) from malloc() does not mean, that u can succesfully use whole allocated memory;
-    * When allocing array of pointers, use ``sizeof(void *)`` instead of ``sizeof(whatever_u_typed_at_ponter_type)``. Example:
+    * Never use malloc() in critical applications. Returned non-null value (pointer TBH) from malloc() does not mean, that u can successfully use whole allocated memory;
+    * When allocating array of pointers, use ``sizeof(void *)`` instead of ``sizeof(whatever_u_typed_at_ponter_type)``. Example:
     ```c
     int ***mem = malloc (sizeof(void *)*NUMBER_OF_ELEMENTS);
     ```
-    * Do not save floating pointers (or seeking/offset pointer) at array - better to hold seek/offset. It will be userful when reallocated memory gives u new pointer with different address;
-    * Don't forget to NOT seek pointers without taking notice about pointer type. If u wanna seek with bytes, just typecast.
+    * Do not save floating pointers (you can call it "seeking" or "offset" pointer) at array it is better to hold seek/offset. It will be useful when reallocated memory gives you new pointer with different address;
+    * Do not forget to NOT seek pointers without taking notice about pointer type. If you want to seek with bytes, just typecast it.
 
 3. Style:
 
@@ -26,7 +27,7 @@ Some rules are related to C programming language.
         //code
     }
     ```
-    * Do not use curly brackets when only 1 expression present:
+    * Do not use curly brackets for a single line expression (do not forget to keep eval expression at same line):
     ```c
     while (i_am_playing_games()) nobody_should_not_distrub_me();
     ```
@@ -40,10 +41,10 @@ Some rules are related to C programming language.
         and_drik_coffee();
     }
     ```
-    * Use tabs. Make possible to configure editors to showing it as any number of spaces as other people want
-    * Separate multiple numbers of round brackets with spaces if it's difficult to read:
+    * Use tabs. Make possible to configure editors to show it as any number of spaces as other people want
+    * Separate outer round brackets with spaces, make it easier to read&understand:
     ```c
-    if( ptr = malloc(elements*sizeof(char) ) ) {
+    if( ptr = malloc(elements*sizeof(char)) ) {
         //
     }
     ```
@@ -52,8 +53,8 @@ Some rules are related to C programming language.
 
 4. Coding tips
 
-    * Please, do not invent bicycles if you aren't sure if it worth;
-    * Do not write any kind of routines which is already written&rewritten&tested by thousands people. You probably should use POSIX library. If you're care about platform-independent code - this library present almost anywhere, even in Windows! Of course, if you will not write code for PDP or other weird machines.
+    * Please, do not invent bicycles if you aren't sure it worth;
+    * Do not write any kind of routines that could be already written and tested by thousands of people. You probably should use POSIX library. If you care about platform-independent code, you should know that this library is present almost anywhere, even in Windows! Of course, if you will not write code for PDP or other weird/unusual devices.
     * Describe every single user's function with comments (not body - but whole function). Live example:
     ```c
     //same as strcpy, but returns pointer to character AFTER null terminator instead of 1st arg
@@ -62,12 +63,12 @@ Some rules are related to C programming language.
 	      return s1;
     }
     ```
-    * Take care about multiplying with dereferencing pointer. You might be confused with code like this:
+    * Take care about multiplying dereferenced pointer. You might be confused with code like this:
     ```c
     variable**ptr;
     //or even
     variable***ptr_to_ptr;
     ```
       Of course, in real code you can't find names like "variable" and "ptr", so, it's usually not clear what "asterisk" operator is doing here.
-    * Do not declare function inside another function. It's gcc feature, not any kind of standart (not even gnu89 or gnu99). Check your code with clang. If you wish to use global variables, move them from main() body to file.
+    * Do not declare function inside another function. It's gcc feature and not a part of any standart (not even gnu89 or gnu99). Check your code with clang. If you wish to use global variables, move them from main() body to file.
 
