@@ -42,13 +42,12 @@ Some rules might be related to C programming language.
     }
     ```
     * Use tabs. Make possible to configure editors to show it as any number of spaces as other people want
-    * Separate outer round brackets with spaces, make it easier to read&understand:
+    * If somewhere in code appears 3 or more round brackets in a row - separate outer brackets with spaces, make it easier to read&understand:
     ```c
     if( ptr = malloc(elements*sizeof(char)) ) {
         //
     }
     ```
-      You can decide where to put space (or where not) freely.
     * Comment every single line if you are not sure you can understand it tomorrow quick enough.
 
 4. Coding tips
