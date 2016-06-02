@@ -73,7 +73,7 @@ Some rules might be related to C programming language.
     ```
       Of course, in real code you can't find names like "variable" and "ptr", so, it's usually not clear what "asterisk" operator is doing here.
     * Do not declare function inside another function. It's gcc feature and not a part of any standart (not even gnu89 or gnu99). Check your code with clang. If you wish to use global variables, move them away from main() body.
-    * Make sure you are initialized all needed memory and variables. Recommended reference (just read it and remember): ["ISO/IEC 9899:TC2 6.7.8 Initialization"](http://c0x.coding-guidelines.com/6.7.8.html)
+    * Make sure you are initialized all needed memory and variables. Recommended reference (just read it and remember): [ISO/IEC 9899:1999 (TC2) "6.7.8 Initialization"](http://c0x.coding-guidelines.com/6.7.8.html).
 
 5. Stop being annoying
 
