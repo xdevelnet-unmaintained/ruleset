@@ -6,8 +6,8 @@ Some rules might be related to C programming language.
 1. Use c99 standard, just to be able to declare variables where you want and assign values at declaration. But make possible to easily rewrite code to c89:
 
     * Do not use variable length arrays, use [m,c]alloc() instead;
-    * Do not use bool types, you probably can avoid it. Also, bool is not bool for real;
-    * If you need to save memory with lots of bool variables - use bit masks insted;
+    * Try to not use bool types, you probably can avoid it. Also, bool is not bool for real;
+    * If you need to save memory with lots of bool variables - use bit masks instead;
     * Do not EVER use any gnu standart (gnu89, gnu99). Keep your code clean.
 
 2. Take care about memory management:
@@ -45,6 +45,7 @@ Some rules might be related to C programming language.
     }
     ```
     * Use tabs. Make possible to configure editors to show it as any number of spaces as other people want
+    * Avoid ternary operators. Imagine if someone will read your :?:?:?:?:?:?:?:?: code.
     * If somewhere in code appears 3 or more round brackets in a row - separate outer brackets with spaces, make it easier to read&understand:
     ```c
     if( ptr = malloc(elements*sizeof(char)) ) {
@@ -79,4 +80,4 @@ Some rules might be related to C programming language.
 
     * Do you really think that putting ``static`` keyword everywhere (especially before function declarations) is good idea? Stop it, please! Just use it when u REALLY know it's not redundant. When some function is required only for internal library usage, of course - it may be good to hiding it from IDE suggestions. If you experiencing troubles with function names collisions - your function naming is BAD anyway.
     * Gotophobia. Sometimes you can just put one ``goto`` statement and carry on. Do not produce unreadable code because someone told you that ``goto`` is evil.
-    * When you're writing library, PLEASE, write documentation. I don't ask you about full featured formatted high quality pdf development manual! Comments can be still enough. Spending people's time is good when someone pay them for that.
+    * When you're writing library, PLEASE, write documentation. I don't ask you about full featured formatted high quality pdf development manual! Comments can be still enough. Wasting people's time is good when someone pay them for that.
