@@ -25,7 +25,7 @@ Some rules might be related to C programming language.
     * Prefer 1TBS style (see example below), but don't touch 3-rd party libraries code style;
     * Open curly bracket after round bracket (without line break):
     ```c
-    void dummy () {
+    void dummy() {
         //code
     }
     ```
@@ -48,7 +48,7 @@ Some rules might be related to C programming language.
     * Avoid ternary operators. Imagine if someone will read your :?:?:?:?:?:?:?:?: code.
     * If somewhere in code appears 3 or more round brackets in a row - separate outer brackets with spaces, make it easier to read&understand:
     ```c
-    if( ptr = malloc(elements*sizeof(char)) ) {
+    if( ptr = malloc(elements * sizeof(char)) ) {
         //
     }
     ```
